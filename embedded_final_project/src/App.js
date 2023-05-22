@@ -27,7 +27,6 @@ const ContentFormat = styled.div`
 `
 
 function App() {
-
   const [temperature , setTemperature] = useState(0);
   const [airHumidity , setAirHumidity] = useState(0);
   const [lightIntensity , setLightIntensity] = useState(0);
@@ -67,30 +66,30 @@ function App() {
     else {setPlant("Pineapple");}
   }
 
-  // useEffect(() => {
-  //   client.connect( {
-  //     useSSL: true,
-  //     userName : "AGbBVA3JhxCFf21kqcnJ2w3EVmQxcQNs",
-  //     password : "Kl92JbumTOu8pCp2o6QlsoxgSdOitsvq",  
-  //     onSuccess: () => { 
-  //       console.log("Connected!");
-  //       client.subscribe("@msg/temp");
-  //       client.onMessageArrived = onMessage;
-  //       client.publish("@msg/request", "r");
-  //     },
-  //     onFailure: () => {
-  //       console.log("Failed to connect!"); 
-  //     }
-  //   });
-  // }, []);
+  useEffect(() => {
+    client.connect( {
+      useSSL: true,
+      userName : "AGbBVA3JhxCFf21kqcnJ2w3EVmQxcQNs",
+      password : "Kl92JbumTOu8pCp2o6QlsoxgSdOitsvq",  
+      onSuccess: () => { 
+        console.log("Connected!");
+        client.subscribe("@msg/temp");
+        client.onMessageArrived = onMessage;
+        client.publish("@msg/request", "r");
+      },
+      onFailure: () => {
+        console.log("Failed to connect!"); 
+      }
+    });
+  }, []);
 
   return (
     <Container className='plant' id='plant'>
       <Format>
         <NavBar></NavBar>
         <ContentFormat>
-          <PlantRecommendCard></PlantRecommendCard>
-          <StatusCard ></StatusCard>
+          <PlantRecommendCard plant={plant}></PlantRecommendCard>
+          <StatusCard temperature={temperature} airHumidity={airHumidity} lightIntensity={lightIntensity} soilHumidity={soilHumidity}></StatusCard>
           <MembersName></MembersName>
         </ContentFormat>
         <Footer></Footer>

@@ -75,7 +75,7 @@ const EnviSubInfo = styled.div`
     gap: 4px;
 `
 
-const PlantRecommendCard = () => {
+const PlantRecommendCard = (props) => {
     return <Container>
         <h1>Recommended Plant</h1>
         <InfoContainer>
@@ -83,7 +83,7 @@ const PlantRecommendCard = () => {
             <InfoCard>
                 <NameInfo>
                     <h1>Plant's name</h1>
-                    <h2>scientific name</h2>
+                    <h2>{props.plant}</h2>
                 </NameInfo>
                 <AboutAndEnviInfo>
                     <AboutInfo>
