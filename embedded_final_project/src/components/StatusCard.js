@@ -39,6 +39,12 @@ const SensorCardInfo = styled.div`
     width: 100%;
 `
 
+const Divider = styled.div`
+    width: 2px;
+    height: 104px;
+    background: #F9FAFB;
+`
+
 const StatusCard = () => {
 
     return <Container className='status' id='status'>
@@ -51,6 +57,7 @@ const StatusCard = () => {
                     <h4>temp info</h4>
                 </SensorCardInfo>
             </SensorCard>
+            <Divider></Divider>
             <SensorCard>
             <img src='humidity.svg'></img>
                 <SensorCardInfo>
@@ -58,6 +65,7 @@ const StatusCard = () => {
                     <h4>humid info</h4>
                 </SensorCardInfo>
             </SensorCard>
+            <Divider></Divider>
             <SensorCard>
             <img src='light.svg'></img>
                 <SensorCardInfo>
@@ -65,6 +73,7 @@ const StatusCard = () => {
                     <h4>light info</h4>
                 </SensorCardInfo>
             </SensorCard>
+            <Divider></Divider>
             <SensorCard>
             <img src='soil-moisture.svg'></img>
                 <SensorCardInfo>
