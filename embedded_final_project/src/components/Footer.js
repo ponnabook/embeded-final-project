@@ -18,14 +18,14 @@ const InfoContainer = styled.div`
     justify-content: center;
     padding: 0px;
     gap: 40px;
-    width: 100%;
+    width: 1180px;
     height: 100%;
 `
 const LineContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 80%;
+    width: 100%;
     padding: 0px 40px;
 `
 
