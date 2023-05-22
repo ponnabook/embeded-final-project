@@ -1,5 +1,3 @@
-import Paho from "paho-mqtt";
-import React, { useState, useEffect  } from 'react';
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -46,63 +44,7 @@ const Divider = styled.div`
     background: #F9FAFB;
 `
 
-const StatusCard = () => {
-
-    const [temperature , setTemperature] = useState(0);
-    const [airHumidity , setAirHumidity] = useState(0);
-    const [lightIntensity , setLightIntensity] = useState(0);
-    const [soilHumidity , setSoilHumidity] = useState(0);
-    const [plant , setPlant] = useState("plantA");
-    const client = new Paho.Client(
-    "mqtt.netpie.io",
-    Number(443),
-    "76e628dd-b356-4761-87d6-5dadccb403a3"
-    );
-
-    function onMessage(message) {
-        var data = JSON.parse(message.payloadString);
-        var t = data.data.temperature;
-        var a = data.data.airHumidity;
-        var l = data.data.lightIntensity;
-        var s = data.data.soilHumidity;
-        setTemperature(t);
-        setAirHumidity(a)
-        setLightIntensity(l);
-        setSoilHumidity(s);
-        if(t < 25 && a < 50 && l < 50 && s < 50) {setPlant("Chestnut");}
-        else if(t < 25 && a < 50 && l < 50 && s >= 50) {setPlant("Garlic");}
-        else if(t < 25 && a < 50 && l >= 50 && s < 50) {setPlant("Camomile");}
-        else if(t < 25 && a < 50 && l >= 50 && s >= 50) {setPlant("Sedge");}
-        else if(t < 25 && a >= 50 && l < 50 && s < 50) {setPlant("Kiwi");}
-        else if(t < 25 && a >= 50 && l < 50 && s >= 50) {setPlant("Bamboo");}
-        else if(t < 25 && a >= 50 && l >= 50 && s < 50) {setPlant("Maple");}
-        else if(t < 25 && a >= 50 && l >= 50 && s >= 50) {setPlant("Onion");}
-        else if(t >= 25 && a < 50 && l < 50 && s < 50) {setPlant("Verbena");}
-        else if(t >= 25 && a < 50 && l < 50 && s >= 50) {setPlant("Wasabi");}
-        else if(t >= 25 && a < 50 && l >= 50 && s < 50) {setPlant("Aloe");}
-        else if(t >= 25 && a < 50 && l >= 50 && s >= 50) {setPlant("Butterfly pea");}
-        else if(t >= 25 && a >= 50 && l < 50 && s < 50) {setPlant("Peanut");}
-        else if(t >= 25 && a >= 50 && l < 50 && s >= 50) {setPlant("Mimosa");}
-        else if(t >= 25 && a >= 50 && l >= 50 && s < 50) {setPlant("Red Sandalwood");}
-        else {setPlant("Pineapple");}
-      }
-    
-    //   useEffect(() => {
-    //     client.connect( {
-    //       useSSL: true,
-    //       userName : "kWS2iDRUVGjwQ2dNpxHqa6YEGUMHzJjE",
-    //       password : "HN_2h5$TMMjjrPWp2tSYS3tGw$TDbVoX",  
-    //       onSuccess: () => { 
-    //         console.log("Connected!");
-    //         client.subscribe("@msg/temp");
-    //         client.onMessageArrived = onMessage;
-    //         client.publish("@msg/request", "r");
-    //       },
-    //       onFailure: () => {
-    //         console.log("Failed to connect!"); 
-    //       }
-    //     });
-    //   }, [])
+const StatusCard = (props) => {
 
     return <Container className='status' id='status'>
         <h1>Status</h1>
@@ -111,7 +53,7 @@ const StatusCard = () => {
             <img src='temp.svg'></img>
                 <SensorCardInfo>
                     <h2>Temperature</h2>
-                    <h4>{temperature}</h4>
+                    <h4>{props.temperature}</h4>
                 </SensorCardInfo>
             </SensorCard>
             <Divider></Divider>
@@ -119,7 +61,7 @@ const StatusCard = () => {
             <img src='humidity.svg'></img>
                 <SensorCardInfo>
                     <h2>Air Humidity</h2>
-                    <h4>{airHumidity}</h4>
+                    <h4>{props.airHumidity}</h4>
                 </SensorCardInfo>
             </SensorCard>
             <Divider></Divider>
@@ -127,7 +69,7 @@ const StatusCard = () => {
             <img src='light.svg'></img>
                 <SensorCardInfo>
                     <h2>Light intensity</h2>
-                    <h4>{lightIntensity}</h4>
+                    <h4>{props.lightIntensity}</h4>
                 </SensorCardInfo>
             </SensorCard>
             <Divider></Divider>
@@ -135,7 +77,7 @@ const StatusCard = () => {
             <img src='soil-moisture.svg'></img>
                 <SensorCardInfo>
                     <h2>Soil Humidity</h2>
-                    <h4>{soilHumidity}</h4>
+                    <h4>{props.soilHumidity}</h4>
                 </SensorCardInfo>
             </SensorCard>
         </SensorInfoCard>
