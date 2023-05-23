@@ -53,7 +53,7 @@ const StatusCard = (props) => {
             <img src='temp.svg'></img>
                 <SensorCardInfo>
                     <h2>Temperature</h2>
-                    <h4>{props.temperature}</h4>
+                    <h4>{props.temperature} °C</h4>
                 </SensorCardInfo>
             </SensorCard>
             <Divider></Divider>
@@ -61,7 +61,7 @@ const StatusCard = (props) => {
             <img src='humidity.svg'></img>
                 <SensorCardInfo>
                     <h2>Air Humidity</h2>
-                    <h4>{props.airHumidity}</h4>
+                    <h4>{props.airHumidity} %</h4>
                 </SensorCardInfo>
             </SensorCard>
             <Divider></Divider>
@@ -69,7 +69,7 @@ const StatusCard = (props) => {
             <img src='light.svg'></img>
                 <SensorCardInfo>
                     <h2>Light intensity</h2>
-                    <h4>{props.lightIntensity}</h4>
+                    <h4>{props.lightIntensity} Lux</h4>
                 </SensorCardInfo>
             </SensorCard>
             <Divider></Divider>
@@ -77,7 +77,7 @@ const StatusCard = (props) => {
             <img src='soil-moisture.svg'></img>
                 <SensorCardInfo>
                     <h2>Soil Humidity</h2>
-                    <h4>{props.soilHumidity}</h4>
+                    <h4>{props.soilHumidity} %</h4>
                 </SensorCardInfo>
             </SensorCard>
         </SensorInfoCard>

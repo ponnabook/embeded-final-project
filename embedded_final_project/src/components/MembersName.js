@@ -53,7 +53,7 @@ const MembersName = () => {
             <TableRow>
                 <TableNameInfo>Tittaya Worawongtad</TableNameInfo>
                 <TableInfo>6431314821</TableInfo>
-                <TableInfo>Backend Development</TableInfo>
+                <TableInfo>Embedded System Development</TableInfo>
                 
             </TableRow>
             <TableRow>
@@ -64,7 +64,7 @@ const MembersName = () => {
             <TableRow>
                 <TableNameInfo>Matikant Vatrasresth</TableNameInfo>
                 <TableInfo>6432142321</TableInfo>
-                <TableInfo>Embedded System Development</TableInfo>
+                <TableInfo>System Architecture</TableInfo>
             </TableRow>
          </Table>
     </Container>
