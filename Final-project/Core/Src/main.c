@@ -220,7 +220,7 @@ void Print_console(){
 
 	HAL_UART_Transmit(&huart2, (uint8_t*)pData, sprintf(pData, " __________________________\r\n" )  , 10 );
 	HAL_UART_Transmit(&huart2, (uint8_t*)pData, sprintf(pData, "|                          |\r\n" )  , 10 );
-	HAL_UART_Transmit(&huart2, (uint8_t*)pData, sprintf(pData, "|  Happy Plant <3          |\r\n" )  , 10 );
+	HAL_UART_Transmit(&huart2, (uint8_t*)pData, sprintf(pData, "|  let's plant <3          |\r\n" )  , 10 );
 	HAL_UART_Transmit(&huart2, (uint8_t*)pData, sprintf(pData, "|  Light Intensity:   %4d |\r\n", light )  , 10 );
 	HAL_UART_Transmit(&huart2, (uint8_t*)pData, sprintf(pData, "|  Soil Moisture:    %3d.%d |\r\n", sInt, sFloat )  , 10 );
 	HAL_UART_Transmit(&huart2, (uint8_t*)pData, sprintf(pData, "|  Temperature:    %3d.%d C |\r\n", tInt, tFloat )  , 10 );

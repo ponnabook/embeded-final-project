@@ -60,8 +60,8 @@ all: main-build
 main-build: Final-project.elf secondary-outputs
 
 # Tool invocations
-Final-project.elf Final-project.map: $(OBJS) $(USER_OBJS) D:\Punpun\work_CU\Subject_work\Year02_S-2\2110366_Embedded-Sys-Lab-I\lab\Final-project\STM32F411RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Final-project.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\Punpun\work_CU\Subject_work\Year02_S-2\2110366_Embedded-Sys-Lab-I\lab\Final-project\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final-project.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Final-project.elf Final-project.map: $(OBJS) $(USER_OBJS) D:\Punpun\work_CU\Subject_work\Year02_S-2\2110366_Embedded-Sys-Lab-I\File\Final_project_doc\SourceCode\embeded-final-project\Final-project\STM32F411RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Final-project.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\Punpun\work_CU\Subject_work\Year02_S-2\2110366_Embedded-Sys-Lab-I\File\Final_project_doc\SourceCode\embeded-final-project\Final-project\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Final-project.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

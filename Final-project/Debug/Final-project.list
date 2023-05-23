@@ -39,11 +39,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  17 .debug_line   0000fa87  00000000  00000000  00049e42  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00097fab  00000000  00000000  000598c9  2**0
+ 18 .debug_str    00097fdf  00000000  00000000  000598c9  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000050  00000000  00000000  000f1874  2**0
+ 19 .comment      00000050  00000000  00000000  000f18a8  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00003ee8  00000000  00000000  000f18c4  2**2
+ 20 .debug_frame  00003ee8  00000000  00000000  000f18f8  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -2163,7 +2163,7 @@ void Print_console(){
  800156a:	230a      	movs	r3, #10
  800156c:	4857      	ldr	r0, [pc, #348]	; (80016cc <Print_console+0x2a0>)
  800156e:	f002 ff88 	bl	8004482 <HAL_UART_Transmit>
-	HAL_UART_Transmit(&huart2, (uint8_t*)pData, sprintf(pData, "|  Happy Plant <3          |\r\n" )  , 10 );
+	HAL_UART_Transmit(&huart2, (uint8_t*)pData, sprintf(pData, "|  let's plant <3          |\r\n" )  , 10 );
  8001572:	463b      	mov	r3, r7
  8001574:	495d      	ldr	r1, [pc, #372]	; (80016ec <Print_console+0x2c0>)
  8001576:	4618      	mov	r0, r3
