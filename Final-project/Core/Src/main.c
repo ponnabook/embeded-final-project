@@ -136,9 +136,18 @@ void Light_intensity_readData(){
 //Soil Moisture ----------------------------
 double SoilMoisturePercentage(int raw_val){
 
-  double percentage = 100 - ( (double)raw_val / ( 4096.0 - 1.0 ) ) * 100;
+	//For Capacitive Soil Moisture Sensor
+	//double percentage = 100 - ( (double)raw_val / ( 4096.0 - 1.0 ) ) * 100;
 
-  return percentage;
+	//For probe - Noted: data is collected when Using Vin = 5 V, R = 330 ohm
+	//ADC output when soil is dry = 0
+	//ADC output when soil is in the water = 800 (approximately, test by dip probe in the water)
+	double percentage = ( (double)raw_val / 800.0 ) * 100.0; // Conversion ADC value to percentage
+
+	//Noted2: may have error due to data we collect (eg. a little bit higher than max we have known)
+	if( percentage > 100.0 ) percentage = 100;
+
+	return percentage;
 }
 
 void Soil_moisture_readData(){
